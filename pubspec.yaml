@@ -35,6 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+
+  # Http networking package.
   dio: ^5.4.1
 
 dev_dependencies:
@@ -53,6 +55,12 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+
+  # Marianne-Regular font.
+  fonts:
+    - family: Marianne-Regular
+      fonts:
+        - asset: assets/fonts/Marianne-Regular.otf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
