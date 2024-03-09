@@ -12,6 +12,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // Lists to hold all resources and filtered resources
   List<Resource> resources = [];
   List<Resource> filteredResources = [];
   TextEditingController searchController = TextEditingController();
@@ -30,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.dispose();
   }
 
+  // Fetches token and resources when the page is initialized
   Future<void> fetchTokenAndResources() async {
     try {
       final Dio dio = Dio();
@@ -46,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  // Fetches resources using the provided token
   Future<void> fetchResources(String token) async {
     try {
       final Dio dio = Dio();
@@ -75,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  // Filters resources based on current page
   void filterResources() {
     final int startIndex = currentPage * resourcesPerPage;
     final int endIndex = (currentPage + 1) * resourcesPerPage;
@@ -84,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  // Refreshes resources when triggered
   Future<void> refreshResources() async {
     try {
       final Dio dio = Dio();
@@ -121,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  // Goes to the next page of resources
   void nextPage() {
     if ((currentPage + 1) * resourcesPerPage < resources.length) {
       setState(() {
@@ -130,6 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  // Goes to the previous page of resources
   void previousPage() {
     if (currentPage > 0) {
       setState(() {
@@ -139,6 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  // Filters resources based on search query
   void filterSearchResults(String query) {
     if (query.isNotEmpty) {
       final dummyListData = resources
@@ -155,6 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  // Views detailed information about a resource
   void viewResourceDetail(Resource resource) {
     Navigator.push(
       context,
@@ -183,6 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
+            fontSize: 22,
           ),
         ),
         centerTitle: true,
@@ -203,6 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          // Search bar to filter resources
           Padding(
             padding: const EdgeInsets.fromLTRB(32.0, 16.0, 32.0, 16.0),
             child: TextField(
@@ -242,6 +253,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Expanded(
+            // Display filtered resources
             child: filteredResources.isEmpty
                 ? const Center(
               child: Column(
@@ -262,6 +274,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 : ListView.builder(
               itemCount: filteredResources.length,
               itemBuilder: (BuildContext context, int index) {
+                // Display each resource item
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
                   child: GestureDetector(
@@ -271,6 +284,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // Resource image and category
                         Stack(
                           alignment: Alignment.topRight,
                           children: [
@@ -312,6 +326,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ],
                         ),
+                        // Resource details
                         Container(
                           color: Colors.white,
                           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
@@ -350,6 +365,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
+          // Pagination buttons
           Container(
             decoration: BoxDecoration(
               color: const Color(0xFFF0F0F0),

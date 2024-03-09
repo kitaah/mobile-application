@@ -21,6 +21,7 @@ class ResourceDetailPage extends StatelessWidget {
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
+                  fontSize: 22,
                 ),
               ),
             ),
@@ -39,6 +40,7 @@ class ResourceDetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  // Displaying resource name
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -50,6 +52,7 @@ class ResourceDetailPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // Displaying resource publisher
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -76,7 +79,7 @@ class ResourceDetailPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Publié par ${resource.userName}",
+                              "Published by ${resource.userName}",
                               style: TextStyle(
                                 color: Colors.grey[700],
                               ),
@@ -86,6 +89,7 @@ class ResourceDetailPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  // Displaying resource image
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 16),
                     child: SizedBox(
@@ -96,6 +100,7 @@ class ResourceDetailPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // Displaying resource description
                   Padding(
                     padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
                     child: Text(
@@ -110,6 +115,7 @@ class ResourceDetailPage extends StatelessWidget {
               ),
             ),
           ),
+          // Button to navigate back
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
             child: Container(
