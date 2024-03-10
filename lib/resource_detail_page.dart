@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'home_page.dart' show Resource;
+import 'package:cached_network_image/cached_network_image.dart' show CachedNetworkImage;
 
 class ResourceDetailPage extends StatelessWidget {
   final Resource resource;
@@ -79,7 +80,7 @@ class ResourceDetailPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Published by ${resource.userName}",
+                              "Publié par ${resource.userName}",
                               style: TextStyle(
                                 color: Colors.grey[700],
                               ),
@@ -94,9 +95,10 @@ class ResourceDetailPage extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(vertical: 16),
                     child: SizedBox(
                       width: double.infinity,
-                      child: Image.network(
-                        resource.imageUrl,
+                      child: CachedNetworkImage(
+                        imageUrl: resource.imageUrl,
                         fit: BoxFit.cover,
+                        errorWidget: (context, url, error) => const Icon(Icons.error),
                       ),
                     ),
                   ),

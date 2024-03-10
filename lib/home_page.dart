@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
-import 'resource_detail_page.dart';
+import 'package:flutter/material.dart' show Alignment, AppBar, Border, BorderRadius, BorderSide, BoxDecoration, BoxFit, BuildContext, Center, CircleBorder, ClipRRect, Color, Colors, Column, Container, CrossAxisAlignment, Divider, EdgeInsets, ElevatedButton, Expanded, FontWeight, GestureDetector, Icon, IconButton, Icons, InputBorder, InputDecoration, Key, ListView, MainAxisAlignment, Navigator, Offset, OutlineInputBorder, Padding, PageRouteBuilder, Positioned, Row, Scaffold, SizedBox, SlideTransition, Stack, State, StatefulWidget, Text, TextEditingController, TextField, TextStyle, Tween, Visibility, Widget;
+import 'package:dio/dio.dart' show Dio, Options;
+import 'package:cached_network_image/cached_network_image.dart' show CachedNetworkImage;
+import 'resource_detail_page.dart' show ResourceDetailPage;
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -292,9 +293,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Center(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                                  child: Image.network(
-                                    filteredResources[index].imageUrl,
+                                  child: CachedNetworkImage(
+                                    imageUrl: filteredResources[index].imageUrl,
                                     fit: BoxFit.cover,
+                                    placeholder: (context, url) => Container(),
+                                    errorWidget: (context, url, error) => const Icon(Icons.error),
                                   ),
                                 ),
                               ),

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'package:flutter/material.dart' show BuildContext, Colors, Key, MaterialApp, StatelessWidget, ThemeData, Widget, runApp;
+import 'home_page.dart' show MyHomePage;
 
 void main() {
   // Runs the application with MyApp as the root widget.
