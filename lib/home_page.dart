@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> fetchTokenAndResources() async {
     try {
       final Dio dio = Dio();
-      final responseToken = await dio.get('http://10.0.2.2:51526/api/token');
+      final responseToken = await dio.get('http://10.0.2.2:32770/api/token');
       if (responseToken.statusCode == 200) {
         final Map<String, dynamic> responseData = responseToken.data;
         final String token = responseData['token'];
@@ -53,14 +53,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> fetchResources(String token) async {
     try {
       final Dio dio = Dio();
-      final response = await dio.get('http://10.0.2.2:51526/api/resources',
+      final response = await dio.get('http://10.0.2.2:32770/api/resources',
           options: Options(headers: {'X-Api-Token': token}));
       if (response.statusCode == 200) {
         final List<dynamic> jsonData = response.data['data'];
         setState(() {
           resources = jsonData.map<Resource>((item) {
             final imageUrl = item['image'].replaceAll(
-                'https://web-application.ddev.site:8443', 'http://10.0.2.2:51526');
+                'https://web-application.ddev.site:8443', 'http://10.0.2.2:32770');
             return Resource(
               name: item['name'],
               imageUrl: imageUrl,
@@ -93,18 +93,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> refreshResources() async {
     try {
       final Dio dio = Dio();
-      final responseToken = await dio.get('http://10.0.2.2:51526/api/token');
+      final responseToken = await dio.get('http://10.0.2.2:32770/api/token');
       if (responseToken.statusCode == 200) {
         final Map<String, dynamic> responseData = responseToken.data;
         final String token = responseData['token'];
-        final response = await dio.get('http://10.0.2.2:51526/api/resources',
+        final response = await dio.get('http://10.0.2.2:32770/api/resources',
             options: Options(headers: {'X-Api-Token': token}));
         if (response.statusCode == 200) {
           final List<dynamic> jsonData = response.data['data'];
           setState(() {
             resources = jsonData.map<Resource>((item) {
               final imageUrl = item['image'].replaceAll(
-                  'https://web-application.ddev.site:8443', 'http://10.0.2.2:51526');
+                  'https://web-application.ddev.site:8443', 'http://10.0.2.2:32770');
               return Resource(
                 name: item['name'],
                 imageUrl: imageUrl,
