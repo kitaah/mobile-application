@@ -1,16 +1,17 @@
-# mobile_application
+# **(RE)SOURCES RELATIONNELLES Project - Mobile application**
 
-Mobile application for (RE)SOURCES RELATIONNELLES Project
+Here is the mobile application for the RELATIONAL RESOURCES project. For the moment, only the Android version has been developed. The iOS version will be developed subsequently.
 
-## Getting Started
+## **Features**
 
-This project is a starting point for a Flutter application.
+- **Application launch**: official logo appears upon launching the application.
+- **Resource listing:** consultation of resources published and validated by administrators, with a refresh button for the available listings and a dynamic search bar functionality.
+- **Individual resource**: viewing an individual resource, with an included back button.
 
-A few resources to get you started if this is your first Flutter project:
+## **Tools**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **IDE:** Android Studio
+- **Framework:** Flutter (Material Design Theme)
+- **Versioning**: Git
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center"><img src="https://komarev.com/ghpvc/?username=kitaah&color=ff69b4" alt="kitaah" /></p>
