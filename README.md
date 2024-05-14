@@ -14,6 +14,6 @@ Here is the mobile application for the RELATIONAL RESOURCES project. For the mom
 - **Framework:** Flutter (Material Design Theme)
 - **Versioning**: Git
 
-<p align="center"><img src="https://komarev.com/ghpvc/?username=kitaah&color=yellowgreen," alt="kitaah" /></p>
+<p align="center"><img src="https://komarev.com/ghpvc/?username=kitaah&color=ff69b4" alt="kitaah" /></p>
 
  
